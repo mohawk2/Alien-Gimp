@@ -4,6 +4,9 @@ require 5.008;
 use strict;
 use warnings;
 use ExtUtils::MakeMaker;
+require 'common.pl';
+
+my $version = ag_getversion();
 
 my @pms = qw(Alien/Gimp.pm Alien/Gimp/Install/Files.pm);
 WriteMakefile(
@@ -28,6 +31,7 @@ WriteMakefile(
     provides => {
       'Alien::Gimp' => {
 	file => 'AGversion.pm',
+	version => $version,
       },
     },
     resources => {

@@ -2,11 +2,9 @@
 
 use strict;
 use warnings;
-
-require 'AGversion.pm';
-my $version = $Alien::Gimp::VERSION;
-
 require 'common.pl';
+
+my $version = ag_getversion();
 my $config_hash = ag_getconfig();
 
 my $cfg = join '', <DATA>;

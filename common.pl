@@ -29,4 +29,9 @@ sub ag_getbuild {
   };
 }
 
+sub ag_getversion {
+  require 'AGversion.pm';
+  $Alien::Gimp::VERSION;
+}
+
 1;
