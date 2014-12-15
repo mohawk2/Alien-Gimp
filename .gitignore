@@ -6,3 +6,5 @@ Makefile
 Makefile.old
 Gimp/Config.pm
 Gimp/IFiles.pm
+lib/Alien/Gimp.pm
+lib/Alien/GimpIFiles.pm
