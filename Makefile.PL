@@ -30,7 +30,7 @@ WriteMakefile(
     "meta-spec" => { version => 2 },
     provides => {
       'Alien::Gimp' => {
-	file => 'AGversion.pm',
+	file => 'lib/Alien/Gimp.pm.PL',
 	version => $version,
       },
     },
