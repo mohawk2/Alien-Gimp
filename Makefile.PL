@@ -8,7 +8,7 @@ use IO::All;
 use File::Spec;
 use ExtUtils::PkgConfig;
 
-my $version = '0.01';
+my $version = '0.02';
 
 my %gimpcfg = ExtUtils::PkgConfig->find("gimp-2.0");
 my $gimppath = File::Spec->catdir(ExtUtils::PkgConfig->variable("gimp-2.0", "exec_prefix"), "bin");
@@ -54,6 +54,12 @@ WriteMakefile(
   },
   META_MERGE => {
     "meta-spec" => { version => 2 },
+    provides => {
+      'Alien::Gimp' => {
+	file => 'META.json',
+	version => $version,
+      },
+    },
     resources => {
       repository => {
 	type => 'git',
