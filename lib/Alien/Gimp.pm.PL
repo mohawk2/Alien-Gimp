@@ -1,3 +1,21 @@
+#!perl -w
+
+use strict;
+use warnings;
+
+require 'AGversion.pm';
+my $version = $Alien::Gimp::VERSION;
+
+require 'common.pl';
+my $config_hash = ag_getconfig();
+
+my $cfg = join '', <DATA>;
+$cfg =~ s/#CFG#/Data::Dumper->Dump([$config_hash], ['*config'])/e;
+$cfg =~ s/#VERSION#/$version/;
+my $out = shift;
+io($out)->print($cfg) or die "$out: $!\n";
+
+__DATA__
 package Alien::Gimp;
 
 use strict;
