@@ -11,7 +11,7 @@ my $version = ag_getversion();
 my @pms = qw(Alien/Gimp.pm Alien/Gimp/Install/Files.pm);
 WriteMakefile(
   NAME	=> 'Alien::Gimp',
-  VERSION_FROM => 'AGversion.pm',
+  VERSION => $version,
   MIN_PERL_VERSION => '5.014001',
   BUILD_REQUIRES	=> {
     'IO::All'		=> 0,

@@ -30,8 +30,7 @@ sub ag_getbuild {
 }
 
 sub ag_getversion {
-  require 'AGversion.pm';
-  $Alien::Gimp::VERSION;
+  '0.05';
 }
 
 1;
