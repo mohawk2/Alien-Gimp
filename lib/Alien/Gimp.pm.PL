@@ -27,6 +27,11 @@ sub gimp { $config{gimp} }
 sub gimptool { $config{gimptool} }
 sub gimpplugindir { $config{gimpplugindir} }
 
+sub Inline {
+  require Alien::Gimp::Install::Files;
+  goto &Alien::Gimp::Install::Files::Inline;
+}
+
 1;
 
 __END__
