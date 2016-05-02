@@ -13,6 +13,13 @@ WriteMakefile(
   NAME	=> 'Alien::Gimp',
   VERSION => $version,
   MIN_PERL_VERSION => '5.014001',
+  CONFIGURE_REQUIRES	=> {
+    'IO::All'		=> 0,
+    'ExtUtils::Depends'	=> '0.402',
+    'ExtUtils::PkgConfig'	=> 0,
+    'Data::Dumper'	=> 0,
+    'File::Spec'	=> 0,
+  },
   BUILD_REQUIRES	=> {
     'IO::All'		=> 0,
     'ExtUtils::Depends'	=> '0.402',
