@@ -4,10 +4,13 @@ use IO::All;
 use File::Spec;
 use ExtUtils::PkgConfig;
 
+my ($cflags, $gimppath, $gimptool, $plugindir, $pluginlibs);
+
 my %gimpcfg = ExtUtils::PkgConfig->find("gimp-2.0");
-my $gimppath = File::Spec->catdir(ExtUtils::PkgConfig->variable("gimp-2.0", "exec_prefix"), "bin");
-my $gimptool = File::Spec->catfile($gimppath, "gimptool-2.0");
-my ($plugindir, $pluginlibs) = split /\n/, `$gimptool --gimpplugindir --libs`;
+$cflags = $gimpcfg{cflags};
+$gimppath = File::Spec->catdir(ExtUtils::PkgConfig->variable("gimp-2.0", "exec_prefix"), "bin");
+$gimptool = File::Spec->catfile($gimppath, "gimptool-2.0");
+($plugindir, $pluginlibs) = split /\n/, `$gimptool --gimpplugindir --libs`;
 
 my $gimpbinname = ExtUtils::PkgConfig->modversion("gimp-2.0");
 $gimpbinname =~ s/^(\d\.\d).*/$1/; # strip off minor versions
@@ -24,7 +27,7 @@ sub ag_getconfig {
 
 sub ag_getbuild {
   +{
-    cflags => $gimpcfg{cflags},
+    cflags => $cflags,
     pluginlibs => $pluginlibs,
   };
 }
