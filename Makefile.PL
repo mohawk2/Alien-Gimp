@@ -4,7 +4,7 @@ require 5.008;
 use strict;
 use warnings;
 use ExtUtils::MakeMaker;
-require 'common.pl';
+require './common.pl';
 
 my $version = ag_getversion();
 
