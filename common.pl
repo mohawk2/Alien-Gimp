@@ -10,7 +10,7 @@ my $gimptool = File::Spec->catfile($gimppath, "gimptool-2.0");
 my ($plugindir, $pluginlibs) = split /\n/, `$gimptool --gimpplugindir --libs`;
 
 my $gimpbinname = ExtUtils::PkgConfig->modversion("gimp-2.0");
-$gimpbinname =~ s/^(\d\.\d).*/$1/; # strip off minor versions
+$gimpbinname =~ s/^(\d\.\d+)\..*/$1/; # strip off minor versions
 die "Need GIMP version at least 2.8.0\n"
   unless ExtUtils::PkgConfig->atleast_version("gimp-2.0", "2.8.0");
 
