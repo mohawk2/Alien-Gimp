@@ -31,7 +31,7 @@ sub ag_getbuild {
 }
 
 sub ag_getversion {
-  '0.08';
+  '0.09';
 }
 
 1;
